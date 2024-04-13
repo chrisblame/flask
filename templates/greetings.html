@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО</title>
+    <style>
+        #container {
+            width: 800px;
+            margin: 50px auto 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        a1 {
+            font-size: 48px;
+            text-align: justify;
+            text-indent: 40px;
+            margin-bottom: 40px;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        a2 {
+            font-size: 30px;
+            text-align: justify;
+            text-indent: 40px;
+            color: #4d4d4d;
+            margin: 0;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        a3 {
+            font-size: 30px;
+            text-align: justify;
+            text-indent: 40px;
+            color: #4d4d4d;
+            margin-bottom: 20px;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        button {
+            width: 380px;
+            height: 100px;
+            font-size: 30px;
+            color: #96b4d6;
+            margin: 10px auto 0;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        button:hover {
+            color: #71a4de;
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a1>Добро пожаловать в «ЛЕТЕО»!</a1>
+        <a2>Здесь вы сможете подготовиться к экзаменам, изучить новые темы или подтянуть знания по пройденному материалу.</a2>
+        <a3>Для начала пройдите регистрацию или зайдите на аккаунт, если он уже создан.</a3>
+        <div class="buttons-container">
+            <form action="register">
+                <button type="submit">Регистрация</button>
+            </form>
+            <form action="login">
+                <button type="submit">Вход</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
