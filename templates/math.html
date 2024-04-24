@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО - математика</title>
+    <style>
+        #container-top {
+            width: 800px;
+            margin: 50px 524px 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .main-header {
+            position: relative;
+            top: 23px;
+            margin-left: -0.5px;
+            font-size: 60px;
+            font-family: 'consolas', sans-serif;
+            color: #4d4d4d;
+        }
+        .blue {
+            color: #71a4de
+        }
+        .profile {
+            margin-left: 88.95%;
+            font-size: 20px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .text1 {
+            margin-left: 27.75%;
+            margin-top: 1%;
+            font-size: 36px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .button-profile{
+            margin-left: 87.75%;
+            margin-top: -50%;
+            margin-bottom: 1%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-profile:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+
+
+        #container {
+            width: 800px;
+            margin: 30px 524px 0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            font-family: 'Consolas', monospace;
+        }
+        .buttons-header {
+            position: relative;
+            margin: 10px 255px 0;
+            font-size: 40px;
+            font-family: 'consolas', sans-serif;
+            color: #4d4d4d;
+        }
+        .subject-btn {
+            width: 800px;
+            height: 100px;
+            margin-top: 10px;
+            font-size: 30px;
+            color: #96b4d6;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+            cursor: pointer;
+            text-align: left;
+        }
+        .subject-btn:hover {
+            color: #71a4de;
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+        .subject-btn::after {
+            content: '˅';
+            float: right;
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .subject-btn.active::after {
+            transform: rotate(180deg);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            width: 770px;
+        }
+        .dropdown-content.active {
+            display: block;
+        }
+        .rubric-link {
+            width: 800px;
+            padding: 12px 16px;
+            text-align: left;
+            background-color: #f9f9f9;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: block;
+            color: #4d4d4d;
+            text-decoration: none;
+            font-family: 'consolas', sans-serif;
+        }
+        .rubric-link:hover {
+            background-color: #e8e8e8;
+        }
+        #container-contacts {
+            width: 800px;
+            height: 85px;
+            margin: 50px 524px 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .contact-row {
+            margin-top: 1%;
+            margin-bottom: -2%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+        p {
+            font-size: 18px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+        }
+        .text3 {
+            margin-left: 0%;
+            margin-top: -1%;
+            font-size: 28px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container-top">
+    <label class="main-header">ЛЕТЕ<span class="blue">О</span></label>
+    <form action="profile">
+        <button type="submit" class="button-profile"></button>
+    </form>
+    <label class="profile">Профиль</label>
+</div>
+<div id="container">
+    <label class="buttons-header">Математика</label>
+    <div class="buttons-container">
+        <button class="subject-btn" data-subject="algebra">Алгебра</button>
+        <div class="dropdown-content" id="algebra-content">
+            <form action="/math/equation">
+                <button class="rubric-link">Уравнения</button>
+            </form>
+            <form action="/math/inequalities">
+                <button class="rubric-link">Неравенства</button>
+            </form>
+            <form action="/math/function">
+                <button class="rubric-link">Функции</button>
+            </form>
+        </div>
+        <button class="subject-btn" data-subject="geometry">Геометрия</button>
+        <div class="dropdown-content" id="geometry-content">
+            <form action="/math/planimetry">
+                <button class="rubric-link">Планиметрия</button>
+            </form>
+            <form action="/math/stereometry">
+                <button class="rubric-link">Стереометрия</button>
+            </form>
+            <form action="/math/vectors">
+                <button class="rubric-link">Векторы</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="container-contacts">
+    <label class="text3">Контакты:</label>
+    <div class="contact-row">
+        <div class="contact-item">
+            <span class="circle"></span>
+            <p>+7 (999) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (888) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (777) 123-45-67ㅤ</p>
+        </div>
+    </div>
+    <div class="contact-row">
+    </div>
+</div>
+<script>
+    const subjectBtns = document.querySelectorAll(".subject-btn");
+    const dropdownContents = document.querySelectorAll(".dropdown-content");
+    subjectBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const subject = btn.dataset.subject;
+            const contentToShow = document.getElementById(`${subject}-content`);
+            const isActive = contentToShow.style.display === "block";
+            dropdownContents.forEach(content => content.style.display = "none");
+            subjectBtns.forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
+                contentToShow.style.display = "block";
+            }
+            btn.classList.toggle('active');
+        });
+    });
+    document.addEventListener('click', (event) => {
+        const clickedElement = event.target;
+        const isSubjectBtn = clickedElement.classList.contains('subject-btn');
+        const isDropdownContent = clickedElement.classList.contains('dropdown-content');
+        if (!isSubjectBtn && !isDropdownContent) {
+            dropdownContents.forEach(content => content.style.display = 'none');
+            subjectBtns.forEach(btn => btn.classList.remove('active'));
+        }
+    });
+</script>
+</body>
+</html>

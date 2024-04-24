@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО - математика</title>
+    <style>
+        #container-top {
+            width: 800px;
+            margin: 50px auto 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .main-header {
+            position: relative;
+            top: 23px;
+            margin-left: -0.5px;
+            font-size: 60px;
+            font-family: 'consolas', sans-serif;
+            color: #4d4d4d;
+        }
+        .blue {
+            color: #71a4de
+        }
+        .profile {
+            margin-left: 88.95%;
+            font-size: 20px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .text1 {
+            margin-left: 27.75%;
+            margin-top: 1%;
+            font-size: 36px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .button-profile{
+            margin-left: 87.75%;
+            margin-top: -50%;
+            margin-bottom: 1%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-profile:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+
+
+        #container-middle {
+            width: 800px;
+            margin: 30px 524px 0;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+            font-family: 'Consolas', monospace;
+        }
+        .text1 {
+            margin-left: 35%;
+            margin-top: 1%;
+            font-size: 38px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .equation {
+            margin-top: 2%;
+            font-size: 24px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .input-and-button {
+            display: flex;
+            align-items: center;
+        }
+        .answer-input {
+            margin-top: 1%;
+            padding: 5px;
+            font-size: 20px;
+            flex-grow: 1;
+        }
+        .answer-check {
+            width: 200px;
+            height: 40px;
+            margin-left: 10px;
+            margin-top: 1%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #d1e7ff;
+            color: #96b4d6;
+            font-size: 24px;
+            font-family: 'consolas', sans-serif;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .answer-check:hover {
+            color: #71a4de;
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+        #container-contacts {
+            width: 800px;
+            height: 85px;
+            margin: 50px 524px 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .contact-row {
+            margin-top: 1%;
+            margin-bottom: -2%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+        p {
+            font-size: 18px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+        }
+        .text3 {
+            margin-left: 0%;
+            margin-top: -1%;
+            font-size: 28px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container-top">
+    <label class="main-header">ЛЕТЕ<span class="blue">О</span></label>
+    <form action="/profile">
+        <button type="submit" class="button-profile"></button>
+    </form>
+    <label class="profile">Профиль</label>
+</div>
+<div id="container-middle">
+    <label class="text1">Уравнения</label>
+    {% for description, answer in equations %}
+    <div class="equation-container" data-answer="{{ answer }}">
+        <label class="equation">{{ loop.index }}. {{ description }}</label>
+        <div class="input-and-button">
+            <input type="text" class="answer-input" id="answer-{{ loop.index }}">
+            <button class="answer-check" onclick="checkAnswer(this)">Проверить</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div id="container-contacts">
+    <label class="text3">Контакты:</label>
+    <div class="contact-row">
+        <div class="contact-item">
+            <span class="circle"></span>
+            <p>+7 (999) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (888) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (777) 123-45-67ㅤ</p>
+        </div>
+    </div>
+    <div class="contact-row">
+    </div>
+</div>
+
+<script>
+    function checkAnswer(button) {
+        const equationContainer = button.closest('.equation-container');
+        const correctAnswer = equationContainer.dataset.answer;
+        const inputField = equationContainer.querySelector('.answer-input');
+        const userAnswer = inputField.value;
+
+        if (userAnswer.trim() === correctAnswer) {
+            inputField.value = "Верно";
+            inputField.disabled = true;
+            saveAnswerToDatabase(userAnswer, equationContainer.dataset.index);
+        } else {
+            inputField.value = "Неверно";
+        }
+    }
+
+    function saveAnswerToDatabase(userAnswer, equationIndex) {
+        const url = '/save_answer';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                answer: userAnswer,
+                equationIndex: equationIndex
+            })
+        })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+</script>
+</body>
+</html>

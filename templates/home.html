@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО</title>
+    <style>
+        #container-top {
+            width: 800px;
+            margin: 50px 524px 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .main-header {
+            position: relative;
+            top: 23px;
+            font-size: 60px;
+            font-family: 'consolas', sans-serif;
+            color: #4d4d4d;
+        }
+        .blue {
+            color: #71a4de
+        }
+        .profile {
+            margin-left: 89%;
+            font-size: 20px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .text1 {
+            margin-left: 27.75%;
+            margin-top: 1%;
+            font-size: 36px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .text2 {
+            margin-left: -2.5%;
+            margin-top: 1%;
+            font-size: 36px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .text3 {
+            margin-left: 0%;
+            margin-top: -1%;
+            font-size: 28px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        button {
+            margin-left: 87.75%;
+            margin-top: -50%;
+            margin-bottom: 1%;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 50px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+
+
+        #container-middle {
+            width: 800px;
+            margin: 8px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .button-math {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: -5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-rus {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #ffc163;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-phys {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: -5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #da75ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-inf {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #73ffd5;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        button:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+        .button-math:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+        .button-rus:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #f2a530;
+        }
+        .button-phys:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #ca38ff;
+        }
+        .button-inf:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #32f0b7;
+        }
+
+
+        #container-bottom {
+            width: 800px;
+            margin: 8px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .button-fast-check {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: -5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-fast-check:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+        .button-full-check {
+            width: 400px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 5%;
+            display: block;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .button-full-check:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+
+
+        #container-contacts {
+            width: 800px;
+            height: 85px;
+            margin: 50px auto 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .contact-row {
+            margin-top: 1%;
+            margin-bottom: -2%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+        p {
+            font-size: 18px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div id="container-top">
+    <label class="main-header">ЛЕТЕ<span class="blue">О</span></label>
+    <form action="profile">
+        <button type="submit"></button>
+    </form>
+    <label class="profile">Профиль</label>
+</div>
+<label class="text1">Выберете направление подготовки:</label>
+<div id="container-middle">
+    <form action="math">
+        <button type="submit" class="button-math"></button>
+    </form>
+    <form action="rus">
+        <button type="submit" class="button-rus"></button>
+    </form>
+    <form action="phys">
+        <button type="submit" class="button-phys"></button>
+    </form>
+    <form action="inf">
+        <button type="submit" class="button-inf"></button>
+    </form>
+    <label class="text2">Быстрая проверка знаний:</label>
+</div>
+<div id="container-bottom">
+    <form action="fast_check">
+        <button type="submit" class="button-fast-check"></button>
+    </form>
+    <form action="full_check">
+        <button type="submit" class="button-full-check"></button>
+    </form>
+</div>
+<div id="container-contacts">
+    <label class="text3">Контакты:</label>
+    <div class="contact-row">
+        <div class="contact-item">
+            <span class="circle"></span>
+            <p>+7 (999) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (888) 123-45-67ㅤㅤ</p>
+            <span class="circle"></span>
+            <p>+7 (777) 123-45-67ㅤ</p>
+        </div>
+    </div>
+    <div class="contact-row">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО - профиль</title>
+    <style>
+        #container-top {
+            width: 800px;
+            margin: 50px 524px 0;
+            padding: 20px;
+            border: 2px;
+            border-radius: 10px;
+            background-color: #f5f5f5
+        }
+        .main-header {
+            position: relative;
+            top: 23px;
+            font-size: 60px;
+            font-family: 'consolas', sans-serif;
+            color: #4d4d4d;
+        }
+        .blue {
+            color: #71a4de
+        }
+        .home {
+            margin-left: 75.5%;
+            white-space: nowrap;
+            font-size: 20px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .home-button {
+            margin-left: 75%;
+            margin-top: -50%;
+            margin-bottom: 1%;
+            width: 200px;
+            height: 100px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        button:hover {
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            width: 800px;
+            margin: 20px 524px 0;
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        .text {
+            margin-left: 23.5%;
+            white-space: nowrap;
+            margin-top: -2%;
+            padding: 20px;
+            font-size: 38px;
+            text-align: justify;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            display: block;
+        }
+        .field {
+            display: flex;
+            white-space: nowrap;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #4d4d4d;
+            font-family: 'consolas', sans-serif;
+            align-items: center;
+        }
+        label {
+            width: 100px;
+        }
+        input {
+            margin-left: auto;
+            font-size: 20px;
+            flex-grow: 0.75;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+        .confirm {
+            width: 400px;
+            height: 50px;
+            color: #96b4d6;
+            margin-bottom: -2%;
+            margin-left: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 26px;
+            font-family: 'consolas', sans-serif;
+            background-color: #d1e7ff;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+        }
+        .confirm:hover {
+            color: #71a4de;
+            border: 2px solid #a6a6a6;
+            background-color: #a4caf5;
+        }
+    </style>
+</head>
+<body>
+<div id="container-top">
+    <label class="main-header">ЛЕТЕ<span class="blue">О</span></label>
+    <form action="home">
+        <button class="home-button" type="submit"></button>
+    </form>
+    <label class="home">Домашняя страница</label>
+</div>
+<div id="container">
+    <label class="text">Данные пользователя</label>
+    <form action="/update_profile" method="POST">
+        <div class="field">
+            <label for="username">Имя пользователя:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" readonly>
+        </div>
+        <div class="field">
+            <label for="surname">Фамилия:</label>
+            <input type="text" id="surname" name="surname" value="{{ session.get('surname', '') }}">
+        </div>
+        <div class="field">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" value="{{ session.get('name', '') }}">
+        </div>
+        <div class="field">
+            <label for="password">Пароль:</label>
+            <input type="text" id="password" name="password" value="{{ user.password }}">
+        </div>
+        <div class="field">
+            <button class="confirm" type="submit">Сохранить</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

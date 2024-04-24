@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ЛЕТЕО</title>
+</head>
+<style>
+    form {
+        width: 600px;
+        margin: 50px auto 0;
+        padding: 20px;
+        border: 2px;
+        border-radius: 10px;
+        background-color: #f5f5f5
+    }
+    label {
+        font-size: 30px;
+        text-align: justify;
+        text-indent: 40px;
+        margin-left: 130px;
+        font-family: 'consolas', sans-serif;
+        display: block;
+    }
+    input {
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+    input::placeholder {
+        color: #b8b8b8;
+    }
+    button {
+        width: 600px;
+        height: 50px;
+        font-size: 28px;
+        color: #96b4d6;
+        margin: 10px auto 0;
+        display: block;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        background-color: #d1e7ff;
+        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border 0.2s ease-in-out;
+    }
+    button:hover {
+        color: #71a4de;
+        border: 2px solid #a6a6a6;
+        background-color: #a4caf5;
+    }
+    .modal {
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 570px;
+        height: 50px;
+        margin: 20px auto 0;
+        border: 2px solid #ccc;
+        border-radius: 7px;
+        background-color: #f5f5f5;
+        display: block;
+        font-size: 20px;
+        font-family: 'consolas', sans-serif;
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 3px;
+    }
+    .modal p{
+        text-align: center;
+        color: #5e5e5e;
+    }
+    .close {
+        color: #ccc;
+        float: right;
+        font-size: 30px;
+    }
+    .close:hover,
+    .close:focus {
+        color: #919191;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<body>
+<form method="post">
+    {{ form.csrf_token }}
+    <label>Вход на аккаунт</label>
+    <input type="text" name="username" placeholder="Имя пользователя" required>
+    <input type="text" name="surname" placeholder="Фамилия" required>
+    <input type="text" name="name" placeholder="Имя" required>
+    <input type="password" name="password" placeholder="Пароль" required>
+    <button type="submit">Войти</button>
+</form>
+{% if error %}
+<div id="myModal" class="modal" style="display: block;">
+    <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p>{{ error }}</p>
+</div>
+{% endif %}
+<script>
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
