@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, session, request
+from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired
@@ -44,6 +45,14 @@ class User(db.Model):
     surname = db.Column(db.String(50), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)
+        self.password_hash = generate_password_hash(kwargs.get('password'))
+
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
 
 class RegistrationForm(FlaskForm):
@@ -91,7 +100,8 @@ def update_profile():
             request.form['name'] = user.name
         user.surname = request.form['surname']
         user.name = request.form['name']
-        user.password = request.form['password']
+        if request.form['password']:
+            user.password_hash = generate_password_hash(request.form['password'])
         db.session.commit()
         session['surname'] = user.surname
         session['name'] = user.name
@@ -203,7 +213,7 @@ def login():
             surname=form.surname.data,
             name=form.name.data
         ).first()
-        if user and user.password == form.password.data:
+        if user and user.check_password(form.password.data):
             session['user_id'] = user.id
             return redirect(url_for('home'))
         else:
